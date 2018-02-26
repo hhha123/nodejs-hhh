@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>登录页面</title>
+	<link rel="stylesheet" href="/stylesheets/style.css" />
+	<script src="/js/jquery.min.js"></script>
+	<style type="text/css">
+		body,html {
+		  height: 100%;
+		  overflow: hidden;
+		}
+	</style>
+</head>
+<body style="height: 100%;padding: 0;">
+	<form  class="login-frm" action="">
+		<div class="login-hd">
+			<img src="/imgs/logo.png" alt="" />
+		</div>
+		<div class="content-wrap">
+			<div class="content-logo">
+				<img src="/imgs/login-logo.png" alt="" />
+			</div>
+			<div class="content">
+				<div class="login-panel">
+					<div class="username controls">
+						<i class="iconfont">&#xe697;</i>
+						<input type="text" placeholder="用户名" />
+					</div>
+					<div class="controls">
+						<i class="iconfont">&#xe6e6;</i>
+						<input type="password" placeholder="密码" />
+					</div>
+					<div class="controls">
+						<i class="iconfont">&#xe624;</i>
+						<input type="text" placeholder="验证码" />
+						<div style="position: absolute;right: 8px;top: 8px;cursor: pointer;">
+							<img src="/imgs/index.png" title="换一张" />
+						</div>
+					</div>
+					<div class="login-btn">
+						<input type="submit" value="登录"/>
+					</div>
+					<div class="save-infor">
+						<div class="login-infor">
+							<input type="checkbox" name="remeber"/>
+							<label for="remeber">保存登录信息</label>
+						</div>
+						<a href="#">忘记密码？</a>
+						<a href="#">去店铺首页>></a>
+					</div>
+				</div>
+			</div>
+		</div>
+	</form>
+</body>
+<!--<script>
+	function login(){
+		$.ajax({
+			url : "/api/login",
+			type : "post",
+			data : {
+				username : $("#username").val(),
+				psw : $("#psw").val()
+			},
+			success : function(res){
+                console.log(res.message);
+			}
+		})
+	}
+</script>-->
+</html>
