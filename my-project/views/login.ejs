@@ -13,7 +13,7 @@
 	</style>
 </head>
 <body style="height: 100%;padding: 0;">
-	<form  class="login-frm" action="">
+	<div  class="login-frm" id="frm">
 		<div class="login-hd">
 			<img src="/imgs/logo.png" alt="" />
 		</div>
@@ -25,21 +25,21 @@
 				<div class="login-panel">
 					<div class="username controls">
 						<i class="iconfont">&#xe697;</i>
-						<input type="text" placeholder="用户名" />
+						<input type="text" placeholder="用户名" id="username" />
 					</div>
 					<div class="controls">
 						<i class="iconfont">&#xe6e6;</i>
-						<input type="password" placeholder="密码" />
+						<input type="password" placeholder="密码" id="pwd" />
 					</div>
 					<div class="controls">
 						<i class="iconfont">&#xe624;</i>
 						<input type="text" placeholder="验证码" />
-						<div style="position: absolute;right: 8px;top: 8px;cursor: pointer;">
+						<div style="position: absolute;right: 8px;top: 6px;cursor: pointer;">
 							<img src="/imgs/index.png" title="换一张" />
 						</div>
 					</div>
 					<div class="login-btn">
-						<input type="submit" value="登录"/>
+						<input type="button" value="登录" onclick="userlogin()" />
 					</div>
 					<div class="save-infor">
 						<div class="login-infor">
@@ -52,21 +52,22 @@
 				</div>
 			</div>
 		</div>
-	</form>
+	</div>
 </body>
-<!--<script>
-	function login(){
+<script>
+	function userlogin(){
 		$.ajax({
 			url : "/api/login",
 			type : "post",
 			data : {
 				username : $("#username").val(),
-				psw : $("#psw").val()
+				pwd : $("#pwd").val()
 			},
 			success : function(res){
                 console.log(res.message);
+                // location.href=""
 			}
 		})
 	}
-</script>-->
+</script>
 </html>

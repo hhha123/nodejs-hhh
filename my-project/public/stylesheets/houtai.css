@@ -1,0 +1,58 @@
+html,body,ul,li,ol,dl,dd,dt,p,h1,h2,h3,h4,h5,h6,form,img,input,figure{margin:0;padding:0}
+*{ box-sizing:border-box;}
+body{font-family: "微软雅黑";font-size:12px;display:flex;flex-direction: column;}
+ul,ol,li{list-style:none;}
+b{font-weight:100;}
+em,i{font-style:normal;}
+h1,h2,h3,h4,h5,h6{font-weight:normal;}
+a,u{text-decoration: none;}
+a{   color: #fff;}
+input{outline:none;border:none;}
+img{display:block;border:0;}
+html,body{width:100%;}
+.left{float: left;}
+.right{float: right;}
+fieldset{
+	border: 0;
+}
+
+/*header--------------------------------------------------*/
+#header{
+	background: #303030;
+    height: 76px;
+    display: flex;
+    justify-content: space-between;
+}
+#header .logo{
+	margin-left: 30px;
+    margin-top: 20px;
+    width: 262px;
+    height: 45px;
+}
+#header .license{
+	text-align: center;
+    width: 1000px;
+    height: 75px;
+}
+.license ul li{
+	float: right;
+    width: 84px;
+    height: 82px;
+}
+.license ul li a{
+	text-align: center;
+    height: 67px;
+    width: 84px;
+    padding-top: 8px;
+    display: block;
+    text-decoration: none;
+    color: #FFF;
+}
+.license ul li a img{
+	margin: auto;
+s    height: 35px;
+}
+.license ul li a span{
+	display: block;
+	margin-top: 6px;
+}
