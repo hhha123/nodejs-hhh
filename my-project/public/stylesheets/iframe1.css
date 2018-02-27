@@ -1,0 +1,154 @@
+html,body,ul,li,ol,dl,dd,dt,p,h1,h2,h3,h4,h5,h6,form,img,input,figure{margin:0;padding:0}
+*{ box-sizing:border-box;}
+body{font-family: "微软雅黑";font-size:12px;display:flex;flex-direction: column;}
+ul,ol,li{list-style:none;}
+b{font-weight:100;}
+em,i{font-style:normal;}
+h1,h2,h3,h4,h5,h6{font-weight:normal;}
+a,u{text-decoration: none;}
+a{   color: #fff;}
+input{outline:none;border:none;}
+img{display:block;border:0;}
+html,body{width:100%;}
+.left{float: left;}
+.right{float: right;}
+
+/*开始---------------------------------------------------------------*/
+#main-content h2{
+    border-bottom: 1px solid #ccc;
+    color: #4c4c4c;
+    font-size: 18px;
+    padding: 7px 10px;
+    margin: 0 0 10px 0;
+    overflow: hidden;
+}
+#main-content h2 .actionS1 a{
+	color: #4c4c4c;
+}
+#main-content h2 .actionS1:hover a{
+	color: #eb8a3d;
+	text-decoration: underline;
+}
+#main-content h2 .help-wd{
+	display: inline-block;
+    vertical-align: middle;
+    margin-left: 10px;
+}
+#main-content h2 .help-wd img{
+	display: inline-block;
+}
+#main-content h2 .shop-list a{
+	display: block;
+	height: 26px;
+    line-height: 26px;
+    padding: 0 10px 0 23px;
+    background: #c43926 url(/imgs/jia.gif) no-repeat 6px center;
+    border-radius: 3px;
+    color: #fff;
+    font-size: 13px;
+    font-weight: normal;
+    text-align: center;
+    cursor: pointer;
+}
+#main-content .tab-content{
+	background: #f3f3f3;
+    border: 1px solid #d7d7d7;
+    margin: 0 0 10px 0;
+    padding: 1px;
+}
+.tab-content .tab-bar{
+	margin-top: 0px;
+    background: #efefef;
+    padding-left: 10px;
+    height: 39px;
+    font-size: 14px;
+    color: #787878;
+    line-height: 39px;
+}
+.tab-bar p{
+	margin: 2px 0 0 0;
+}
+.tab-bar p span{
+	padding: 0 20px;
+    text-align: center;
+    font-size: 13px;
+    float: left;
+    display: block;
+    float: left;
+    color: #787878;
+    line-height: 39px;
+    cursor: hand;
+    cursor: pointer;
+}
+.tab-bar p span.current-wrap{
+	background: #fefefe;
+    height: 39px;
+    line-height: 39px;
+    color: #000;
+    font-weight: bold;
+}
+.tab-body{
+	position: relative;
+	padding: 10px;
+    background: #fefefe;
+}
+.tab-body form .infor-tab td.label{
+	text-align: right;
+    vertical-align: top;
+    font-weight: bold;
+    padding: 5px 1em;
+    width: 30%;
+    line-height: 30px;
+}
+.infor-tab td.td-message{
+	display: flex;
+	margin: 5px 0;
+}
+.infor-tab td.td-message input{
+	border: 1px solid #a9a9a9;
+	width: 195px;
+	height: 22px;
+	margin: 0 5px;
+}
+.infor-tab .font-color img,
+.infor-tab select{
+	margin: 0 5px;
+}
+.infor-tab .require-field{
+	margin-left: 1em;
+    font: 12px verdana;
+    color: #FF0000;
+}
+.infor-tab .goods-sn{
+	border: 1px solid #a9a9a9;
+	width: 135px;
+	height: 22px;
+	margin: 5px 0 0 5px;
+}
+.infor-tab .notice-span{
+	padding-top: 6px;
+	display: block;
+	color: #666;
+	margin: 0 5px;
+}
+#add-fenlei,
+.category_add .add{
+	color: #335B64;
+	margin: 0 5px;
+    padding: 1px 5px;
+    border: 1px solid #91C4D0;
+    border-right: 2px solid #278296;
+    border-bottom: 2px solid #278296;
+    background: #DDEEF2;
+    font-weight: 400;
+}
+.category_add input{
+	width: 75px;
+	height: 22px;
+	border: 1px solid #a9a9a9;
+}
+.color-box{
+	position: absolute;
+	top:42px;
+	left: 555px;
+}

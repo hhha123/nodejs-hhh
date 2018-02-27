@@ -4,6 +4,7 @@
 	<meta charset="UTF-8">
 	<title>后台</title>
 	<link rel="stylesheet" href="/stylesheets/houtai.css" />
+	<script type="text/javascript" src="/js/jquery.min.js"></script>
 </head>
 <body>
 	<div id="header">
@@ -75,7 +76,7 @@
 				<li>
 					<a href="#">
 					    <img src="/imgs/topmune_09.png" alt="" />
-					    <span>更多模板堂产品</span>
+					    <span class="yellow">更多模板堂产品</span>
 					</a>
 				</li>
 			</ul>
@@ -85,11 +86,125 @@
     	<ul>
     		<li>
     			<a href="#">
-    				<img src="" alt="" />
+    				<img src="/imgs/index-01.png" alt="" />
+	    			<span>起始页</span>
     			</a>
-    			<span>起始页</span>
+    			<span class="menuFG"></span>
     		</li>
+    		<li>
+    			<a href="#">
+    				<img src="/imgs/index-02.png" alt="" />
+	    			<span>设置导航栏</span>
+    			</a>
+    			<span class="menuFG"></span>
+    		</li>
+    		<li>
+    			<a href="#">
+    				<img src="/imgs/index-03.png" alt="" />
+	    			<span>商品管理</span>
+	    			<span class="num">31</span>
+    			</a>
+    			<span class="menuFG"></span>
+    		</li>
+    		<li>
+    			<a href="#">
+    				<img src="/imgs/index-04.png" alt="" />
+	    			<span>订单管理</span>
+	    			<span class="num">0</span>
+    			</a>
+    			<span class="menuFG"></span>
+    		</li>
+    		<li>
+    			<a href="#">
+    				<img src="/imgs/index-05.png" alt="" />
+	    			<span>广告管理</span>
+	    			<span class="num">0</span>
+    			</a>
+    			<span class="menuFG"></span>
+    		</li>
+    		<li>
+    			<a href="#">
+    				<img src="/imgs/index-06.png" alt="" />
+	    			<span>用户评论</span>
+	    			<span class="num">0</span>
+    			</a>
+    			<span class="menuFG"></span>
+    		</li>
+    		<li><a href="#">用户评论</a></li>
+    		<li><a href="#">商品列表</a></li>
+    		<li><a href="#">会员列表</a></li>
+    		<li><a href="#">商店设置</a></li>
+    		<li><a href="#">移动版</a></li>
+    		<li><a href="#">服务市场</a></li>
     	</ul>
     </div>
+    <div id="container">
+    	<div class="navL">
+    		<h3>导航菜单</h3>
+    		<div class="navList">
+    			<ul class="nav-menu">
+    				<li class="nav-child children1">商品管理
+    				   <ul style="display: none;">
+    				   	 <li class="list-item"><a href="https://www.baidu.com" target="mainContent">商品列表</a></li>
+    				   	 <li class="list-item"><a href="http://www.1000phone.com" target="mainContent">添加新商品</a></li>
+    				   	 <li class="list-item"><a href="#">商品分类</a></li>
+    				   	 <li class="list-item"><a href="#">用户评论</a></li>
+    				   	 <li class="list-item"><a href="#">商品品牌</a></li>
+    				   	 <li class="list-item"><a href="#">商品类型</a></li>
+    				   	 <li class="list-item"><a href="#">商品类型</a></li>
+    				   	 <li class="list-item"><a href="#">商品类型</a></li>
+    				   	 <li class="list-item"><a href="#">商品类型</a></li>
+    				   </ul>
+    				</li>
+    				<li class="nav-child children2">促销管理</li>
+    				<li class="nav-child children3">订单管理</li>
+    				<li class="nav-child children4">广告管理</li>
+    				<li class="nav-child children5">报表统计</li>
+    				<li class="nav-child children6">文章管理</li>
+    				<li class="nav-child children7">会员管理</li>
+    				<li class="nav-child children8">权限管理</li>
+    				<li class="nav-child children9">商品管理</li>
+    				<li class="nav-child children10">商品管理</li>
+    				<li class="nav-child children11">商品管理</li>
+    				<li class="nav-child children12">商品管理</li>
+    				<li class="nav-child children13">商品管理</li>
+    				<li class="nav-child children14">商品管理</li>
+    				<li class="nav-child children15">商品管理</li>
+    			</ul>
+    		</div>
+    	</div>
+    	<div class="navC">
+    		<img src="/imgs/arrow_left.gif"/>
+    	</div>
+    	<iframe class="navR" name="mainContent"></iframe>
+    </div>
 </body>
+<script>
+	 $("li").click(function(e){
+	 	var e=e || event;
+	 	e.stopPropagation();
+	 })
+	$(".nav-child:has(ul)").click(function(){
+		var index=$(this).index();
+		if($(this).children("ul").css("display")=="none"){
+			$(this).css({"background-image":"url(/imgs/menu1_1.png)","background-color":"#454545"});
+			$(this).children("ul").css("background","#575757");
+		}else{
+			$(this).css({"background-image":"url(/imgs/menu_"+(index+1)+".png)","background-color":"#575757"})
+		}
+		$(this).children("ul").toggle(500);
+	})
+	//颜色板
+	$(".font-color").click(function(e){
+		var e = e || event;
+		e.stopPropagation();
+		$(".color-box").css("display","block");
+	})
+	$(document).click(function() {
+	   $(".color-box").css("display","none");
+    })
+	$(".color-box td").mouseenter(function(){
+		$(this).css("boder","1px solid rgb(255, 255, 255)");
+	})
+</script>
 </html>

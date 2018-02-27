@@ -15,6 +15,9 @@ html,body{width:100%;}
 fieldset{
 	border: 0;
 }
+html,body{
+	height: 100%;
+}
 
 /*header--------------------------------------------------*/
 #header{
@@ -50,9 +53,172 @@ fieldset{
 }
 .license ul li a img{
 	margin: auto;
-s    height: 35px;
+    height: 35px;
 }
 .license ul li a span{
 	display: block;
 	margin-top: 6px;
 }
+.license ul li a span.yellow{
+	color: #ff0;
+}
+.license ul li:hover{
+	background: #666;
+}
+/*menu--------------------------------------------------------------*/
+#menu{
+	background: #575757;
+    height: 41px;
+    border-bottom: 1px solid #212121;
+    color:#fff;
+}
+#menu ul{
+	margin-left: 15px;
+}
+#menu ul li{
+	float: left;
+	display: block;
+    height: 41px;
+    line-height: 41px;
+    position: relative;
+}
+#menu ul li a{
+	float: LEFT;
+    color: #FFF;
+    padding: 0px 12px;
+    display: block;
+}
+#menu ul li a img{
+	width: 17px;
+    height: 18px;
+    vertical-align: middle;
+    display: inline-block;
+}
+#menu ul li a span{
+	margin-left: 10px;
+}
+#menu ul li a span.num{
+	width: 32px;
+    height: 16px;
+    background: url(/imgs/menu-icon.png) no-repeat scroll;
+    display: inline-block;
+    line-height: 16px;
+    vertical-align: middle;
+    text-align: center;
+}
+#menu ul li .menuFG{
+	border-left:1px solid #303030; ;
+    border-right: 1px solid #656565;
+}
+#menu ul li a:hover{
+	background: #404040;
+}
+/*container---------------------------------------------------------*/
+#container{
+	flex: 1;
+	overflow: auto;
+	cursor: pointer;
+	display: flex;
+}
+#container .navL{
+	width:180px;
+	height: 100%;
+	background: #303030;
+	color: #fff;
+	overflow: auto;
+}
+.navL h3{
+	font-size: 14px;
+	padding-left: 20px;
+    height: 34px;
+    line-height: 34px;
+    background: #212121;
+    font-weight: bold;
+}
+.navL .navList ul{
+}
+.navL .navList ul.nav-menu li.nav-child{
+	text-indent: 40px;
+    border-top: #7f7f7f 1px solid;
+    width: 100%;
+    line-height: 42px;
+    text-align: left;
+}
+.navL .navList ul.nav-menu li.nav-child:hover{
+	background-color: #454545;
+}
+.navL .navList ul.nav-menu li.children1{
+	background: #575757 url(/imgs/menu_1.png) no-repeat 9px 0;
+}
+.navL .navList ul.nav-menu li.children2{
+	background: #575757 url(/imgs/menu_2.png) no-repeat 9px 0;
+}
+.navL .navList ul.nav-menu li.children3{
+	background: #575757 url(/imgs/menu_3.png) no-repeat 9px 0;
+}
+.navL .navList ul.nav-menu li.children4{
+	background: #575757 url(/imgs/menu_4.png) no-repeat 9px 0;
+}
+.navL .navList ul.nav-menu li.children5{
+	background: #575757 url(/imgs/menu_5.png) no-repeat 9px 0;
+}
+.navL .navList ul.nav-menu li.children6{
+	background: #575757 url(/imgs/menu_6.png) no-repeat 9px 0;
+}
+.navL .navList ul.nav-menu li.children7{
+	background: #575757 url(/imgs/menu_7.png) no-repeat 9px 0;
+}
+.navL .navList ul.nav-menu li.children8{
+	background: #575757 url(/imgs/menu_8.png) no-repeat 9px 0;
+}
+.navL .navList ul.nav-menu li.children9{
+	background: #575757 url(/imgs/menu_9.png) no-repeat 9px 0;
+}
+.navL .navList ul.nav-menu li.children10{
+	background: #575757 url(/imgs/menu_10.png) no-repeat 9px 0;
+}
+.navL .navList ul.nav-menu li.children11{
+	background: #575757 url(/imgs/menu_11.png) no-repeat 9px 0;
+}
+.navL .navList ul.nav-menu li.children12{
+	background: #575757 url(/imgs/menu_12.png) no-repeat 9px 0;
+}
+.navL .navList ul.nav-menu li.children13{
+	background: #575757 url(/imgs/menu_13.png) no-repeat 9px 0;
+}
+.navL .navList ul.nav-menu li.children14{
+	background: #575757 url(/imgs/menu_14.png) no-repeat 9px 0;
+}
+.navL .navList ul.nav-menu li.children15{
+	background: #575757 url(/imgs/menu_15.png) no-repeat 9px 0;
+}
+.navL .navList .list-item{
+	font-size: 12px;
+    height: 30px;
+    line-height: 30px;
+    font-weight: normal;
+}
+.navL .navList .list-item a{
+    color: #d7d7d7;
+}
+.navList .list-item:hover{
+	background: #888;
+}
+.navList .list-item:hover a{
+	color: #fff;
+}
+#container .navC{
+	width: 10px;
+	height: 100%;
+	background: #303030;
+	display: flex;
+	align-items: center;
+}
+#container .navR{
+	padding: 10px;
+	height: 100%;
+    min-width: 85%;
+    background: url(/imgs/body_bj.jpg);
+    overflow: auto;
+}
+

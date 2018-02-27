@@ -13,6 +13,10 @@ router.get('/index', function(req, res, next) {
   res.render('houtai', { title: '后台php' });
 });
 
+router.get('/goods_add', function(req, res, next) {
+  res.render('iframe1', {});
+});
+
 router.post("/api/login",function(req,res){
 	var username = req.body.username;;
 	var pwd = req.body.pwd;
