@@ -1,0 +1,384 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8" />
+	<title>ECSHOP 管理中心 - 添加新商品 </title>
+	<link rel="stylesheet" href="/stylesheets/iframe1.css" />
+	<script type="text/javascript" src="/js/jquery.min.js"></script>
+</head>
+<body>
+	<div id="main-content">
+		<h2>
+			<span class="actionS1"><a href="#">ECSHOP 管理中心</a></span>
+			<span> - 添加新商品 </span>
+			<span class="help-wd">
+				<a href="#"><img src="/imgs/jnsy.png"/></a>
+			</span>
+			<span class="shop-list right">
+				<a href="#">商品列表</a>
+			</span>
+		</h2>
+	    <div class="tab-content">
+	    	<div class="tab-bar">
+	    		<p>
+	    			<span class="current-wrap">通用信息</span>
+	    			<span>详细描述</span>
+	    			<span>其他信息</span>
+	    			<span>商品属性</span>
+	    			<span>商品相册</span>
+	    			<span>关联商品</span>
+	    			<span>配件</span>
+	    			<span>关联文章</span>
+	    		</p>
+	    	</div>
+	        <div class="tab-body">
+	        	<form action="/api/add_goods" enctype="multipart/form-data" method="post">
+	        	    <table width="90%" align="center" class="infor-tab tableCon">
+	        	    	<tr>
+	        	    		<td class="label">商品名称：</td>
+	        	    		<td class="td-message">
+	        	    			<input type="text" name="goods-name"/>
+	        	    			<div class="font-color">
+	        	    				<img src="/imgs/color.gif" alt="" />
+	        	    			</div>
+	        	    			<select name="goods-name-style">
+	        	    				<option selected="selected">字体样式</option>
+	        	    				<option value="strong">加粗</option>
+	        	    				<option value="em">斜体</option>
+	        	    				<option value="u">下划线</option>
+	        	    				<option value="strike">删除线</option>
+	        	    			</select>
+	        	    			<span class="require-field">*</span>
+	        	    		</td>
+	        	    	</tr>
+	        	    	<tr>
+	        	    		<td class="label">
+	        	    			<a href="#" title="点击此处查看提示信息">
+	        	    			   <img src="/imgs/wh.gif" style="display: inline-block;width:16px;height: 16px;vertical-align: middle;"/>
+	        	    		    </a>商品货号：
+	        	    		</td>
+	        	    		<td>
+	        	    			<input type="text" name="goods-sn" class="goods-sn"/>
+	        	    			<span class="notice-span" style="margin-left:5px;">如果您不输入商品货号，系统将自动生成一个唯一的货号。</span>
+	        	    		</td>
+	        	    	</tr>
+	        	    	<tr>
+	        	    		<td class="label">商品分类：</td>
+	        	    		<td>
+	        	    			<select name="" style="width: 158px;height: 20px;">
+	        	    				<option value="">请选择...</option>
+	        	    				<option value="">服饰</option>
+	        	    				<option value="">&nbsp;&nbsp;&nbsp;&nbsp;衬衫</option>
+	        	    				<option value="">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;短袖衬衫</option>
+	        	    				<option value="">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;长袖衬衫</option>
+	        	    				<option value="">&nbsp;&nbsp;&nbsp;&nbsp;裤子</option>
+	        	    				<option value="">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;休闲短裤</option>
+	        	    				<option value="">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;牛仔裤</option>
+	        	    				<option value="">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;阔腿裤</option>
+	        	    				<option value="">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;打底裤</option>
+	        	    				<option value="">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;西裤</option>
+	        	    				<option value="">休闲娱乐</option>
+	        	    				<option value="">&nbsp;&nbsp;&nbsp;&nbsp;手机</option>
+	        	    				<option value="">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;苹果</option>
+	        	    				<option value="">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;小米</option>
+	        	    				<option value="">&nbsp;&nbsp;&nbsp;&nbsp;电脑配件</option>
+	        	    				<option value="">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;鼠标</option>
+	        	    				<option value="">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;智能耳机</option>
+	        	    				<option value="">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;电池</option>
+	        	    				<option value="">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;内存卡</option>
+	        	    				<option value="">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;硬盘</option>
+	        	    			</select>
+	        	    			<a href="#" title="添加分类" id="add-fenlei">添加分类</a>
+	        	    			<span class="category_add" style="display: none;">
+	        	    				<input type="text"/>
+	        	    				<a href="#" class="add">确定</a>
+	        	    				<a href="#" class="add">分类管理</a>
+	        	    				<a href="#" class="add" id="back1"><<</a>
+	        	    			</span>
+	        	    			<span class="require-field">*</span>
+	        	    		</td>
+	        	    	</tr>
+	        	    	<tr>
+	        	    		<td class="label">扩展分类：</td>
+	        	    		<td>
+	        	    			<input type="button" value="添加" class="add-button"/>
+	        	    		</td>
+	        	    	</tr>
+	        	    	<tr>
+	        	    		<td class="label">商品品牌：</td>
+	        	    		<td>
+	        	    			<select name="shop-brand">
+	        	    				<option value="0">请选择...</option>
+	        	    				<option value="45">gr</option>
+	        	    				<option value="33">空间大师</option>
+	        	    				<option value="32">溢彩年华</option>
+	        	    				<option value="30">圣迪奥</option>
+	        	    				<option value="29">韩都衣舍</option>
+	        	    				<option value="28">betu百图</option>
+	        	    				<option value="25">O.SA</option>
+	        	    				<option value="35">生活诚品</option>
+	        	    				<option value="43">帮宝适</option>
+	        	    				<option value="36">宝优妮</option>
+	        	    				<option value="23">JNBY 江南布衣</option>
+	        	    				<option value="9">联想</option>
+	        	    				<option value="14">创维</option>
+	        	    			</select>
+	        	    			<a href="#" id="add-brand">添加品牌</a>
+	        	    			<span class="category_add" style="display: none;">
+	        	    				<input type="text" class="brand-inp"/>
+	        	    				<a href="#" class="add">确定</a>
+	        	    				<a href="#" class="add">品牌管理</a>
+	        	    				<a href="#" class="add" id="back2"><<</a>
+	        	    			</span>
+	        	    		</td>
+	        	    	</tr>
+	        	    	<tr>
+	        	    		<td class="label">本店售价：</td>
+	        	    		<td>
+	        	    			<input type="text" name="goods-price" class="sell-inp" value="0"/>
+	        	    			<input type="button" value="按市场价计算" class="sales"/>
+	        	    			<span class="require-field">*</span>
+	        	    		</td>
+	        	    	</tr>
+	        	    	<tr>
+	        	    		<td class="label">
+	        	    			<a title="点击此处查看提示信息">
+	        	    				<img src="/imgs/wh.gif" width="16" height="16" border="0" alt="点击此处查看提示信息" style="display: inline-block;vertical-align: middle;"></a>
+	        	    				会员价格：
+	        	    		</td>
+	        	    		<td>
+					                            注册用户<span></span> <input type="text" value="-1" class="input02">
+					                            代销用户<span></span> <input type="text" value="-1" class="input02">
+					           vip<span></span> <input type="text" value="-1" onkeyup="if(parseInt(this.value)<-1){this.value='-1';};set_price_note(2)" class="input02">
+					           <span class="notice-span">会员价格为-1时表示会员价格按会员等级折扣率计算。你也可以为每个等级指定一个固定价格</span>
+                            </td>
+	        	    	</tr>
+	        	    	<tr>
+	        	    		<td class="label">
+	        	    			<a title="点击此处查看提示信息">
+	        	    				<img src="/imgs/wh.gif" width="16" height="16" border="0" alt="点击此处查看提示信息" style="display: inline-block;vertical-align: middle;">
+	        	    			</a>
+	        	    				商品优惠价格：
+	        	    		</td>
+	        	    		<td>
+	        	    		    <a href="#" class="jiahao">[+]</a>
+	        	    		          优惠数量&nbsp;&nbsp;<input type="text" class="input02"/>
+	        	    		          优惠价格&nbsp;&nbsp;<input type="text" class="input02"/> 
+					           <span class="notice-span">购买数量达到优惠数量时享受的优惠价格</span>
+	        	    		</td>
+	        	    	</tr>
+	        	    	<tr>
+	        	    		<td class="label">市场售价：</td>
+	        	    		<td>
+		        	    		<input type="text" class="sell-inp" value="0" />
+		        	    		<input type="button" value="取整数" class="sales"/>
+	        	    		</td>
+	        	    	</tr>
+	        	    	<tr>
+	        	    		<td class="label">虚拟销量：</td>
+	        	    		<td>
+		        	    		<input type="text" name="virtual-sales" class="sell-inp" value="0" />
+	        	    		</td>
+	        	    	</tr>
+	        	    	<tr>
+	        	    		<td class="label">
+	        	    			<a title="点击此处查看提示信息">
+	        	    				<img src="/imgs/wh.gif" width="16" height="16" border="0" alt="点击此处查看提示信息" style="display: inline-block;vertical-align: middle;">
+	        	    			</a>
+	        	    			赠送消费积分数：</td>
+	        	    		<td>
+		        	    		<input type="text" class="sell-inp" value="-1" />
+		        	    		<span class="notice-span">购买该商品时赠送消费积分数,-1表示按商品价格赠送</span>
+	        	    		</td>
+	        	    	</tr>
+	        	    	<tr>
+	        	    		<td class="label">
+	        	    			<a title="点击此处查看提示信息">
+	        	    				<img src="/imgs/wh.gif" width="16" height="16" border="0" alt="点击此处查看提示信息" style="display: inline-block;vertical-align: middle;">
+	        	    			</a>
+	        	    			赠送等级积分数：</td>
+	        	    		<td>
+		        	    		<input type="text" class="sell-inp" value="-1" />
+		        	    		<span class="notice-span">购买该商品时赠送等级积分数,-1表示按商品价格赠送</span>
+	        	    		</td>
+	        	    	</tr>
+	        	    	<tr>
+	        	    		<td class="label">
+	        	    			<a title="点击此处查看提示信息">
+	        	    				<img src="/imgs/wh.gif" width="16" height="16" border="0" alt="点击此处查看提示信息" style="display: inline-block;vertical-align: middle;">
+	        	    			</a>
+	        	    			积分购买金额：</td>
+	        	    		<td>
+		        	    		<input type="text" class="sell-inp" value="0" />
+		        	    		<span class="notice-span">(此处需填写金额)购买该商品时最多可以使用积分的金额</span>
+	        	    		</td>
+	        	    	</tr>
+	        	    	<tr>
+	        	    		<td class="label">
+	        	    			<input type="checkbox" name="" value="" style="display: inline-block;vertical-align: middle;"/>
+	        	    			促销价：
+	        	    		</td>
+	        	    		<td>
+	        	    			<input type="text" class="sell-inp promote" value="0"/>
+	        	    		</td>
+	        	    	</tr>
+	        	    	<tr>
+	        	    		<td class="label">促销日期：</td>
+	        	    		<td>
+	        	    			<input type="text" value="2018-02-28" class="dateCX"/>
+	        	    			<input type="button" class="add-button" value="选择"/>-
+	        	    			<input type="text" value="2018-03-27" class="dateCX"/>
+	        	    			<input type="button" class="add-button" value="选择"/>
+	        	    		</td>
+	        	    	</tr>
+	        	    	<tr>
+	        	    		<td class="label">上传商品图片：</td>
+	        	    		<td>
+	        	    			<input type="file" name="goods_img01"/>
+	        	    			<img src="/imgs/no.gif" style="display: inline-block;"/><br />
+	        	    			<input type="text" value="商品图片外部URL" name="goods_img_url"/>
+	        	    		</td>
+	        	    	</tr>
+	        	    	<tr>
+	        	    		<td class="label">上传商品缩略图：</td>
+	        	    		<td>
+	        	    			<input type="file" name="goods_img02"/>
+	        	    			<img src="/imgs/no.gif" style="display: inline-block;"/><br />
+	        	    			<input type="text" value="商品缩略图外部URL" name="goods_img_url" class="promote"/><br />
+	        	    			<label for="auto_thumb"><input type="checkbox" name="auto_thumb" id=""/>自动生成商品缩略图</label>
+	        	    		</td>
+	        	    	</tr>
+	        	    </table>
+	        	    <table width="90%" class="infor-tab02 tableCon" style="display: none;">
+	        	    	<tr>
+	        	    		<td>
+	        	    			<div class="detail-con" style="width: 100%;">
+	        	    				<div class="detail-top">
+	        	    					<img src="/imgs/de.jpg" alt="" />
+	        	    				</div>
+	        	    				<div class="de-edit" style="display: block;height: 239px;">
+	        	    					<iframe frameborder="0" hidefocus="true" style="cursor:text;width: 100%; height: 239px;"></iframe>
+	        	    				</div>
+	        	    				<div class="de-bar">
+	        	    					<span class="center-icon"></span>
+	        	    					<span class="right-icon"></span>
+	        	    				</div>
+	        	    			</div>
+	        	    		</td>
+	        	    	</tr>
+	        	    </table>
+                    <div class="button">
+	        	    	<input type="button" onclick="" class="add-button" value="确定" />
+	        	    	<input type="reset" onclick="" id="" value="重置" />
+	        	    </div>
+	        	</form>
+	        	<div class="color-box" style="display: none;">
+	        	    	<table width="93" border="1" cellpadding="0" cellspacing="0" bordercolor="#BDBBBC" style="border:2px #C5D9FE solid">
+	        	    		<tr>
+	        	    			<td style="background-color:#ffffff;border: 1px solid rgb(189, 187, 188);">&nbsp;</td>
+	        	    			<td style="background-color:#c0c0c0;border: 1px solid rgb(189, 187, 188);">&nbsp;</td>
+	        	    			<td style="background-color:#969696;border: 1px solid rgb(189, 187, 188);">&nbsp;</td>
+	        	    			<td style="background-color:#808080;border: 1px solid rgb(189, 187, 188);">&nbsp;</td>
+	        	    			<td style="background-color:#333333;border: 1px solid rgb(189, 187, 188);">&nbsp;</td>
+	        	    		</tr>
+	        	    		<tr>
+	        	    			<td style="background-color:#cc99fe;border: 1px solid rgb(189, 187, 188);">&nbsp;</td>
+	        	    			<td style="background-color:#993365;border: 1px solid rgb(189, 187, 188);">&nbsp;</td>
+	        	    			<td style="background-color:#81007f;border: 1px solid rgb(189, 187, 188);">&nbsp;</td>
+	        	    			<td style="background-color:#6766cc;border: 1px solid rgb(189, 187, 188);">&nbsp;</td>
+	        	    			<td style="background-color:#343399;border: 1px solid rgb(189, 187, 188);">&nbsp;</td>
+	        	    		</tr>
+	        	    		<tr>
+	        	    			<td style="background-color:#bbbbbb;border: 1px solid rgb(189, 187, 188);">&nbsp;</td>
+	        	    			<td style="background-color:#00ccff;border: 1px solid rgb(189, 187, 188);">&nbsp;</td>
+	        	    			<td style="background-color:#3366ff;border: 1px solid rgb(189, 187, 188);">&nbsp;</td>
+	        	    			<td style="background-color:#0000fe;border: 1px solid rgb(189, 187, 188);">&nbsp;</td>
+	        	    			<td style="background-color:#010080;border: 1px solid rgb(189, 187, 188);">&nbsp;</td>
+	        	    		</tr>
+	        	    		<tr>
+	        	    			<td style="background-color:#cdffff;border: 1px solid rgb(189, 187, 188);">&nbsp;</td>
+	        	    			<td style="background-color:#01ffff;border: 1px solid rgb(189, 187, 188);">&nbsp;</td>
+	        	    			<td style="background-color:#33cbcc;border: 1px solid rgb(189, 187, 188);">&nbsp;</td>
+	        	    			<td style="background-color:#008081;border: 1px solid rgb(189, 187, 188);">&nbsp;</td>
+	        	    			<td style="background-color:#003265;border: 1px solid rgb(189, 187, 188);">&nbsp;</td>
+	        	    		</tr>
+	        	    		<tr>
+	        	    			<td style="background-color:#cdffcc;border: 1px solid rgb(189, 187, 188);">&nbsp;</td>
+	        	    			<td style="background-color:#00ff01;border: 1px solid rgb(189, 187, 188);">&nbsp;</td>
+	        	    			<td style="background-color:#339967;border: 1px solid rgb(189, 187, 188);">&nbsp;</td>
+	        	    			<td style="background-color:#008002;border: 1px solid rgb(189, 187, 188);">&nbsp;</td>
+	        	    			<td style="background-color:#013300;border: 1px solid rgb(189, 187, 188);">&nbsp;</td>
+	        	    		</tr>
+	        	    		<tr>
+	        	    			<td style="background-color:#fffe99;border: 1px solid rgb(189, 187, 188);">&nbsp;</td>
+	        	    			<td style="background-color:#fffe03;border: 1px solid rgb(189, 187, 188);">&nbsp;</td>
+	        	    			<td style="background-color:#99cd00;border: 1px solid rgb(189, 187, 188);">&nbsp;</td>
+	        	    			<td style="background-color:#807f01;border: 1px solid rgb(189, 187, 188);">&nbsp;</td>
+	        	    			<td style="background-color:#333301;border: 1px solid rgb(189, 187, 188);">&nbsp;</td>
+	        	    		</tr>
+	        	    		<tr>
+	        	    			<td style="background-color:#ffcb99;border: 1px solid rgb(189, 187, 188);">&nbsp;</td>
+	        	    			<td style="background-color:#ffcd00;border: 1px solid rgb(189, 187, 188);">&nbsp;</td>
+	        	    			<td style="background-color:#ff9900;border: 1px solid rgb(189, 187, 188);">&nbsp;</td>
+	        	    			<td style="background-color:#fd6600;border: 1px solid rgb(189, 187, 188);">&nbsp;</td>
+	        	    			<td style="background-color:#993400;border: 1px solid rgb(189, 187, 188);">&nbsp;</td>
+	        	    		</tr>
+	        	    		<tr>
+	        	    			<td style="background-color:#ff99cb;border: 1px solid rgb(189, 187, 188);">&nbsp;</td>
+	        	    			<td style="background-color:#ff00fe;border: 1px solid rgb(189, 187, 188);">&nbsp;</td>
+	        	    			<td style="background-color:#fe0000;border: 1px solid rgb(189, 187, 188);">&nbsp;</td>
+	        	    			<td style="background-color:#800000;border: 1px solid rgb(189, 187, 188);">&nbsp;</td>
+	        	    			<td style="background-color:#000000;border: 1px solid rgb(189, 187, 188);">&nbsp;</td>
+	        	    		</tr>
+	        	    		<tr>
+	        	    			<td align="center" colspan="5" style="border: 1px solid rgb(189, 187, 188);">
+	        	    				<font style="cursor:default">无样式</font>
+	        	    			</td>
+	        	    		</tr>
+	        	    	</table>
+	        	    </div>
+	        </div>
+	    </div>
+	</div>
+    <div id="footer">
+		共执行 9 个查询，用时 0.024317 秒，Gzip 已禁用，内存占用 3.585 MB
+    	<br />
+		版权所有 © 2005-2018 上海商派软件有限公司，并保留所有权利。	
+    </div>
+</body>
+<script type="text/javascript">
+	//颜色板
+	$(".font-color").click(function(e){
+		var e = e || event;
+		e.stopPropagation();
+		$(".color-box").css("display","block");
+	})
+	$(document).click(function() {
+	   $(".color-box").css("display","none");
+    })
+	$(".color-box td").mouseenter(function(){
+		$(this).css("border","1px solid rgb(255, 255, 255)");
+	}).mouseleave(function(){
+		$(this).css("border","1px solid rgb(189, 187, 188)");
+	})
+	//添加分类
+	function add(id1,id2){
+		$(id1).click(function(){
+			$(this).next(".category_add").show();
+		})
+		$(id2).click(function(){
+			$(this).parent(".category_add").hide();
+		})	
+	}
+	add("#add-fenlei","#back1");
+	add("#add-brand","#back2");
+	//选项卡
+	$(".tab-bar span").click(function(){
+		$(this).addClass("current-wrap").siblings().removeClass("current-wrap");
+		var index = $(this).index();
+		$(".tableCon").eq(index).css("display","table")
+		                        .siblings(".tableCon")
+		                        .css("display","none");
+	})
+</script>
+</html>

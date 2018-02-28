@@ -14,7 +14,11 @@ router.get('/index', function(req, res, next) {
 });
 
 router.get('/goods_add', function(req, res, next) {
-  res.render('iframe1', {});
+  res.render('goods_add', {});
+});
+
+router.get('/goods_list', function(req, res, next) {
+  res.render('goods_list', {});
 });
 
 router.post("/api/login",function(req,res){

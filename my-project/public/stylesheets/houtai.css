@@ -215,10 +215,6 @@ html,body{
 	align-items: center;
 }
 #container .navR{
-	padding: 10px;
-	height: 100%;
     min-width: 85%;
-    background: url(/imgs/body_bj.jpg);
-    overflow: auto;
 }
 

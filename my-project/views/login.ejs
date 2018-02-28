@@ -64,8 +64,11 @@
 				pwd : $("#pwd").val()
 			},
 			success : function(res){
-                console.log(res.message);
-                // location.href=""
+                if(res.status==1){
+	                location.href="http://localhost:8080/index#";
+                }else{
+                    console.log(res.message);
+                }
 			}
 		})
 	}

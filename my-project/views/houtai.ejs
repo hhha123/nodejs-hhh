@@ -145,13 +145,13 @@
     			<ul class="nav-menu">
     				<li class="nav-child children1">商品管理
     				   <ul style="display: none;">
-    				   	 <li class="list-item"><a href="https://www.baidu.com" target="mainContent">商品列表</a></li>
-    				   	 <li class="list-item"><a href="http://www.1000phone.com" target="mainContent">添加新商品</a></li>
-    				   	 <li class="list-item"><a href="#">商品分类</a></li>
-    				   	 <li class="list-item"><a href="#">用户评论</a></li>
+    				   	 <li class="list-item"><a href="http://localhost:8080/goods_list" target="mainContent">商品列表</a></li>
+    				   	 <li class="list-item"><a href="http://localhost:8080/goods_add" target="mainContent">添加新商品</a></li>
+    				   	 <li class="list-item"><a href="http://localhost:8080/goods_add" target="mainContent">商品分类</a></li>
+    				   	 <li class="list-item"><a href="http://localhost:8080/goods_add" target="mainContent">用户评论</a></li>
     				   	 <li class="list-item"><a href="#">商品品牌</a></li>
-    				   	 <li class="list-item"><a href="#">商品类型</a></li>
-    				   	 <li class="list-item"><a href="#">商品类型</a></li>
+    				   	 <li class="list-item"><a href="http://localhost:8080/goods_add" target="mainContent">商品类型</a></li>
+    				   	 <li class="list-item"><a href="http://localhost:8080/goods_add" target="mainContent">商品类型</a></li>
     				   	 <li class="list-item"><a href="#">商品类型</a></li>
     				   	 <li class="list-item"><a href="#">商品类型</a></li>
     				   </ul>
@@ -193,18 +193,6 @@
 			$(this).css({"background-image":"url(/imgs/menu_"+(index+1)+".png)","background-color":"#575757"})
 		}
 		$(this).children("ul").toggle(500);
-	})
-	//颜色板
-	$(".font-color").click(function(e){
-		var e = e || event;
-		e.stopPropagation();
-		$(".color-box").css("display","block");
-	})
-	$(document).click(function() {
-	   $(".color-box").css("display","none");
-    })
-	$(".color-box td").mouseenter(function(){
-		$(this).css("boder","1px solid rgb(255, 255, 255)");
 	})
 </script>
 </html>
