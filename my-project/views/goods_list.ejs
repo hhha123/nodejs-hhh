@@ -47,7 +47,7 @@
 		</form>
 	</div>
 	<div class="mainCon">
-		<table cellpadding="3" cellspacing="1">
+		<table cellpadding="3" cellspacing="1" id="tabList">
 			<tr>
 				<th width="96">
 					<input type="checkbox" />
@@ -91,22 +91,16 @@
 		    <tr>
 		    	<td>
 		    		<input type="checkbox"/>
-		    		300
+		    		001
 		    	</td>
 		    	<td class="first-cell">
-		    		<span>夏威夷果</span>
+		    		<span title="点击修改内容">夏威夷果</span>
 		    	</td>
 		    	<td align="center">
-		    		<span>01</span>
+		    		<span title="点击修改内容">01</span>
 		    	</td>
 		    	<td align="center">
-		    		<span>29.00</span>
-		    	</td>
-		    	<td align="center">
-		    		<img src="/imgs/no.gif"/>
-		    	</td>
-		    	<td align="center">
-		    		<img src="/imgs/yes.gif"/>
+		    		<span title="点击修改内容">29.00</span>
 		    	</td>
 		    	<td align="center">
 		    		<img src="/imgs/no.gif"/>
@@ -115,38 +109,96 @@
 		    		<img src="/imgs/yes.gif"/>
 		    	</td>
 		    	<td align="center">
-		    		<span>001</span>
+		    		<img src="/imgs/no.gif"/>
 		    	</td>
 		    	<td align="center">
-		    		<span>100</span>
+		    		<img src="/imgs/yes.gif"/>
 		    	</td>
 		    	<td align="center">
-		    		<span>0</span>
+		    		<span title="点击修改内容">001</span>
 		    	</td>
 		    	<td align="center">
-		    		<a href="#" title="查看">
+		    		<span title="点击修改内容">100</span>
+		    	</td>
+		    	<td align="center">
+		    		<span title="点击修改内容">0</span>
+		    	</td>
+		    	<td align="center">
+		    		<a href="http://localhost:8080/" title="查看">
 		    			<img src="/imgs/icon_view.gif" alt="" />
 		    		</a>
-		    		<a href="#" title="编辑">
+		    		<a href="http://localhost:8080/goods_add" title="编辑">
 		    			<img src="/imgs/icon_edit.gif" alt="" />
 		    		</a>
-		    		<a href="#" title="复制">
+		    		<a href="http://localhost:8080/goods_add" title="复制">
 		    			<img src="/imgs/icon_copy.gif" alt="" />
 		    		</a>
-		    		<a href="#" title="回收站">
+		    		<a href="#" title="回收站" class="del_goods">
 		    			<img src="/imgs/icon_trash.gif" alt="" />
 		    		</a>
 		    	</td>
 		    </tr>
+		 <% for(var i=0; i<list.length; i++) { %>
+	    	<tr>
+	    		<td>
+	    		<input type="checkbox"/>
+	    		00<%= i+2 %>
+		    	</td>
+		    	<td class="first-cell">
+		    		<span title="点击修改内容"><%= list[i].goods_name %></span>
+		    	</td>
+		    	<td align="center">
+		    		<span title="点击修改内容"><%= list[i].goods_sn %></span>
+		    	</td>
+		    	<td align="center">
+		    		<span title="点击修改内容"><%= list[i].goods_price %></span>
+		    	</td>
+		    	<td align="center">
+		    		<img src="/imgs/no.gif"/>
+		    	</td>
+		    	<td align="center">
+		    		<img src="/imgs/no.gif"/>
+		    	</td>
+		    	<td align="center">
+		    		<img src="/imgs/no.gif"/>
+		    	</td>
+		    	<td align="center">
+		    		<img src="/imgs/yes.gif"/>
+		    	</td>
+		    	<td align="center">
+		    		<span title="点击修改内容">00<%= i+2 %></span>
+		    	</td>
+		    	<td align="center">
+		    		<span title="点击修改内容">100</span>
+		    	</td>
+		    	<td align="center">
+		    		<span title="点击修改内容"><%= list[i].virtual_sales %></span>
+		    	</td>
+		    	<td align="center">
+		    		<a href="http://localhost:8080/" title="查看">
+		    			<img src="/imgs/icon_view.gif" alt="" />
+		    		</a>
+		    		<a href="http://localhost:8080/goods_add" title="编辑">
+		    			<img src="/imgs/icon_edit.gif" alt="" />
+		    		</a>
+		    		<a href="http://localhost:8080/goods_add" title="复制">
+		    			<img src="/imgs/icon_copy.gif" alt="" />
+		    		</a>
+		    		<a href="#" title="回收站" class="del_goods">
+		    			<img src="/imgs/icon_trash.gif" alt="" />
+		    		</a>
+		    	</td>
+	    	</tr>
+	     <% } %>
 		</table>
 	    <table cellspacing="0" cellpadding="0" id="page-table">
 	    	<tr>
 	    		<td align="right" nowrap="true">
 	    		   <div class="turn-page">
 	    		   	   总计
-	    		   	 <span>30</span>
+	    		   	 <span id="goods_num">0</span>
 	    		   	 个纪录&nbsp;&nbsp;分为
-	    		   	 <span>2</span>页&nbsp;&nbsp;当前第
+	    		   	 <span id="page_num">2</span>页&nbsp;&nbsp;当前第
 	    		   	 <span>1</span>页&nbsp;&nbsp;每页
 	    		   	 <input type="text" value="15" id="pageSize"/>
 	    		   	 <span style="margin: 0 10px;">|</span>
@@ -171,6 +223,8 @@
 			<option value="">回收站</option>
 			<option value="">上架</option>
 			<option value="">下架</option>
+			<option value="">精品</option>
+			<option value="">新品</option>
 		</select>
 		<input type="submit" value="确定" />
 	</div>
@@ -180,4 +234,29 @@
 		版权所有 © 2005-2018 上海商派软件有限公司，并保留所有权利。	
     </div>
 </body>
+<script type="text/javascript">
+	window.onload=function(){
+		$("#goods_num").html( $("#tabList").find("tr").length-1 );
+		var sum_page=Math.ceil( parseInt( $("#goods_num").html() )/parseInt( $("#pageSize").val() ) );
+		$("#page_num").html(sum_page);
+	}
+	//委托实现为每一个td添加一个onclick事件
+	$("#tabList").delegate("span","click",function(){
+		var txt = $("<input type='text' style='width:50px'/>");
+		txt.val( $(this).html() );
+		$(this).html("");
+		$(this).append(txt);
+		txt.focus();
+		var target = $(this);
+		txt.blur(function(){
+			target.html( txt.val() );
+		})
+	})
+	//回收站
+	$(".del_goods").click(function(){
+		if(confirm("确定要删除此商品么")){
+			$(this).parent().parent().remove();
+		}
+	})
+</script>
 </html>

@@ -118,9 +118,13 @@ input[type=submit]{
 #page-style a:hover{
 	color: #ff3f3f;
 }
-
-
-
+#tabList span:hover{
+	background: #ff3f3f;
+	color: #fff;
+}
+#tabList tr:hover td{
+	background: #f4fafb;
+}
 /*footer-------------------------------------------------------*/
 #footer{
 	background: #f3f3f3 url(/imgs/th_bg.gif) repeat-x;

@@ -32,12 +32,12 @@
 	    		</p>
 	    	</div>
 	        <div class="tab-body">
-	        	<form action="/api/add_goods" enctype="multipart/form-data" method="post">
+	        	<form id="frm-goods" method="post" action="/api/add_goods" enctype="multipart/form-data" >
 	        	    <table width="90%" align="center" class="infor-tab tableCon">
 	        	    	<tr>
 	        	    		<td class="label">商品名称：</td>
 	        	    		<td class="td-message">
-	        	    			<input type="text" name="goods-name"/>
+	        	    			<input type="text" name="goods_name"/>
 	        	    			<div class="font-color">
 	        	    				<img src="/imgs/color.gif" alt="" />
 	        	    			</div>
@@ -58,7 +58,7 @@
 	        	    		    </a>商品货号：
 	        	    		</td>
 	        	    		<td>
-	        	    			<input type="text" name="goods-sn" class="goods-sn"/>
+	        	    			<input type="text" name="goods_sn" class="goods-sn"/>
 	        	    			<span class="notice-span" style="margin-left:5px;">如果您不输入商品货号，系统将自动生成一个唯一的货号。</span>
 	        	    		</td>
 	        	    	</tr>
@@ -135,7 +135,7 @@
 	        	    	<tr>
 	        	    		<td class="label">本店售价：</td>
 	        	    		<td>
-	        	    			<input type="text" name="goods-price" class="sell-inp" value="0"/>
+	        	    			<input type="text" name="goods_price" class="sell-inp" value="0"/>
 	        	    			<input type="button" value="按市场价计算" class="sales"/>
 	        	    			<span class="require-field">*</span>
 	        	    		</td>
@@ -177,7 +177,7 @@
 	        	    	<tr>
 	        	    		<td class="label">虚拟销量：</td>
 	        	    		<td>
-		        	    		<input type="text" name="virtual-sales" class="sell-inp" value="0" />
+		        	    		<input type="text" name="virtual_sales" class="sell-inp" value="0" />
 	        	    		</td>
 	        	    	</tr>
 	        	    	<tr>
@@ -234,7 +234,7 @@
 	        	    	<tr>
 	        	    		<td class="label">上传商品图片：</td>
 	        	    		<td>
-	        	    			<input type="file" name="goods_img01"/>
+	        	    			<input type="file" name="goods_img"/>
 	        	    			<img src="/imgs/no.gif" style="display: inline-block;"/><br />
 	        	    			<input type="text" value="商品图片外部URL" name="goods_img_url"/>
 	        	    		</td>
@@ -242,7 +242,7 @@
 	        	    	<tr>
 	        	    		<td class="label">上传商品缩略图：</td>
 	        	    		<td>
-	        	    			<input type="file" name="goods_img02"/>
+	        	    			<input type="file" name="goods_img"/>
 	        	    			<img src="/imgs/no.gif" style="display: inline-block;"/><br />
 	        	    			<input type="text" value="商品缩略图外部URL" name="goods_img_url" class="promote"/><br />
 	        	    			<label for="auto_thumb"><input type="checkbox" name="auto_thumb" id=""/>自动生成商品缩略图</label>
@@ -268,7 +268,7 @@
 	        	    	</tr>
 	        	    </table>
                     <div class="button">
-	        	    	<input type="button" onclick="" class="add-button" value="确定" />
+	        	    	<input type="button" onclick="addGoods()" class="add-button" value="确定" />
 	        	    	<input type="reset" onclick="" id="" value="重置" />
 	        	    </div>
 	        	</form>
@@ -380,5 +380,9 @@
 		                        .siblings(".tableCon")
 		                        .css("display","none");
 	})
+	//form表单
+	function addGoods(){
+		document.getElementById("frm-goods").submit();
+	}
 </script>
 </html>
