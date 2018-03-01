@@ -6,7 +6,7 @@ b{font-weight:100;}
 em,i{font-style:normal;}
 h1,h2,h3,h4,h5,h6{font-weight:normal;}
 a,u{text-decoration: none;}
-a{   color: #fff;}
+a{color: #fff;}
 input{outline:none;}
 img{display:block;border:0;}
 html,body{width:100%;}
@@ -254,8 +254,18 @@ body{
     height: 11px;
     background-image: url(/imgs/default.png);
 }
-
-
+/*第三个table-------------------------------------------------------*/
+input[type=text]{
+	height: 22px;
+}
+select{
+	vertical-align: middle;
+	height: 22px;
+}
+.infor-tab03 input[type=checkbox]{
+	vertical-align: middle;
+	margin: 3px 3px 3px 4px;
+}
 
 
 
@@ -276,4 +286,17 @@ body{
     color: #9CACAF;
     margin: 10px 0;
     text-align: center;
+}
+input.button{
+	padding: 5px 15px 5px;
+    margin: 2px 2px;
+    border: none;
+    background: #ff3f3f;
+    color: #FFF;
+    cursor: pointer;
+    border-radius: 3px;
+}
+th{
+	color: #666;
+	font-weight: normal;
 }
