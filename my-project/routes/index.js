@@ -33,16 +33,18 @@ router.post("/api/add_goods",function(req,res){
 		var goods_sn = body.goods_sn[0];
 		var goods_price = body.goods_price[0];
 		var virtual_sales = body.virtual_sales[0];
+		var goods_number = body.goods_number[0];
 		var goods_img01Name = files.goods_img[0].path;
 		var goods_img02Name = files.goods_img[1].path;
 		goods_img01Name = goods_img01Name.substr(goods_img01Name.lastIndexOf("\\")+1);
 		goods_img02Name = goods_img02Name.substr(goods_img02Name.lastIndexOf("\\")+1);
-		console.log(goods_name, goods_sn, goods_price, virtual_sales, goods_img01Name, goods_img02Name);
+		console.log(goods_name, goods_sn, goods_price, virtual_sales, goods_number, goods_img01Name, goods_img02Name);
         var gm = new GoodsModel();
         gm.goods_name = goods_name;
         gm.goods_sn = goods_sn;
         gm.goods_price = goods_price;
         gm.virtual_sales = virtual_sales;
+        gm.goods_number = goods_number;
         gm.goods_img01Name = goods_img01Name;
         gm.goods_img02Name = goods_img02Name;
         gm.save(function(err){

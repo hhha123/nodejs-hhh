@@ -173,13 +173,14 @@
     			</ul>
     		</div>
     	</div>
-    	<div class="navC">
+    	<div class="navC" id="toggle_navL">
     		<img src="/imgs/arrow_left.gif"/>
     	</div>
     	<iframe class="navR" name="mainContent"></iframe>
     </div>
 </body>
 <script>
+	//级联菜单
 	 $("li").click(function(e){
 	 	var e=e || event;
 	 	e.stopPropagation();
@@ -194,5 +195,9 @@
 		}
 		$(this).children("ul").toggle(500);
 	})
+	//navL的显示隐藏
+      $("#toggle_navL").click(function(){
+		  $(".navL").toggle();
+      })
 </script>
 </html>

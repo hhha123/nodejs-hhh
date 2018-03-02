@@ -8,6 +8,7 @@ var Goods = new Schema({
     goods_sn    : String,
     goods_price : String,
     virtual_sales  : String,
+    goods_number   : String,
     goods_img01Name  : String,
     goods_img02Name  : String,
     create_date :  { type: Date, default: Date.now }

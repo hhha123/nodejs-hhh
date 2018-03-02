@@ -154,7 +154,7 @@
 		    		<span title="点击修改内容"><%= list[i].goods_price %></span>
 		    	</td>
 		    	<td align="center">
-		    		<img src="/imgs/no.gif"/>
+		    		<img src="/imgs/yes.gif"/>
 		    	</td>
 		    	<td align="center">
 		    		<img src="/imgs/no.gif"/>
@@ -169,7 +169,7 @@
 		    		<span title="点击修改内容">00<%= i+2 %></span>
 		    	</td>
 		    	<td align="center">
-		    		<span title="点击修改内容">100</span>
+		    		<span title="点击修改内容"><%= list[i].goods_number %></span>
 		    	</td>
 		    	<td align="center">
 		    		<span title="点击修改内容"><%= list[i].virtual_sales %></span>
@@ -243,13 +243,18 @@
 	//委托实现为每一个td添加一个onclick事件
 	$("#tabList").delegate("span","click",function(){
 		var txt = $("<input type='text' style='width:50px'/>");
-		txt.val( $(this).html() );
+		var con = $(this).html()
+		txt.val( con );
 		$(this).html("");
 		$(this).append(txt);
 		txt.focus();
 		var target = $(this);
 		txt.blur(function(){
-			target.html( txt.val() );
+			if(txt.val()==""){
+				target.html( con );
+			}else{
+				target.html( txt.val() );
+			}
 		})
 	})
 	//回收站
