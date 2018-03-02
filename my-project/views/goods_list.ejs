@@ -240,7 +240,7 @@
 		var sum_page=Math.ceil( parseInt( $("#goods_num").html() )/parseInt( $("#pageSize").val() ) );
 		$("#page_num").html(sum_page);
 	}
-	//委托实现为每一个td添加一个onclick事件
+	//委托实现为每一个span添加一个onclick事件
 	$("#tabList").delegate("span","click",function(){
 		var txt = $("<input type='text' style='width:50px'/>");
 		var con = $(this).html()
