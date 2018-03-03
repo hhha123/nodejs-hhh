@@ -7,6 +7,7 @@ var Goods = new Schema({
     goods_name  : String,
     goods_sn    : String,
     goods_price : String,
+    is_best     : String,
     virtual_sales  : String,
     goods_number   : String,
     goods_img01Name  : String,

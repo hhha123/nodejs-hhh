@@ -19,9 +19,39 @@ router.get('/goods_add', function(req, res, next) {
 });
 
 router.get('/goods_list', function(req, res, next) {
-  GoodsModel.find({},function(err,docs){
-  	res.render("goods_list",{list:docs});
-  })
+	var pageNo = parseInt(req.query.pageNo || 1);;
+	var count = parseInt(req.query.count || 3);
+	console.log(pageNo,count);
+	var query = GoodsModel.find({}).skip( (pageNo-1)*count ).limit(count).sort({create_date:-1});
+	query.exec(function(err,docs){
+		if(err){
+    		console.log(err);
+    	}else{
+    		GoodsModel.find(function(err,results){
+                res.render("goods_list",{list:docs, sum:results.length, sumgood:results.length, pageNo:pageNo, count:count});
+    		})
+    	}
+	})
+	// GoodsModel.find({},function(err,docs){
+ //   	  res.render("goods_list",{list:docs});
+ //    })
+});
+
+router.get('/api/goods_del', function(req, res, next) {
+	GoodsModel.findByIdAndRemove({_id : req.query.gid},function(err){
+        var result= {
+	    	status : 1,
+	    	message : "商品删除成功"
+	    };
+	    if(err){
+	    	console.log(err);
+	    	result.status = -119;
+	    	result.message = "商品删除失败";
+	    	res.send(result);
+	    }else{
+	    	res.send(result);
+	    }
+   })
 });
 
 router.post("/api/add_goods",function(req,res){
@@ -29,6 +59,7 @@ router.post("/api/add_goods",function(req,res){
 		uploadDir : "./public/imgs"
 	})
 	form.parse(req,function(err,body,files){
+		var is_best = body.is_best;
 		var goods_name = body.goods_name[0];
 		var goods_sn = body.goods_sn[0];
 		var goods_price = body.goods_price[0];
@@ -38,13 +69,14 @@ router.post("/api/add_goods",function(req,res){
 		var goods_img02Name = files.goods_img[1].path;
 		goods_img01Name = goods_img01Name.substr(goods_img01Name.lastIndexOf("\\")+1);
 		goods_img02Name = goods_img02Name.substr(goods_img02Name.lastIndexOf("\\")+1);
-		console.log(goods_name, goods_sn, goods_price, virtual_sales, goods_number, goods_img01Name, goods_img02Name);
+		console.log(is_best);
         var gm = new GoodsModel();
         gm.goods_name = goods_name;
         gm.goods_sn = goods_sn;
         gm.goods_price = goods_price;
         gm.virtual_sales = virtual_sales;
         gm.goods_number = goods_number;
+        gm.is_best = is_best;
         gm.goods_img01Name = goods_img01Name;
         gm.goods_img02Name = goods_img02Name;
         gm.save(function(err){

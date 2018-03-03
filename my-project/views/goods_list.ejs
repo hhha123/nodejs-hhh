@@ -88,61 +88,11 @@
 					<a href="#">操作</a>
 				</th>
 			</tr>
-		    <tr>
-		    	<td>
-		    		<input type="checkbox"/>
-		    		001
-		    	</td>
-		    	<td class="first-cell">
-		    		<span title="点击修改内容">夏威夷果</span>
-		    	</td>
-		    	<td align="center">
-		    		<span title="点击修改内容">01</span>
-		    	</td>
-		    	<td align="center">
-		    		<span title="点击修改内容">29.00</span>
-		    	</td>
-		    	<td align="center">
-		    		<img src="/imgs/no.gif"/>
-		    	</td>
-		    	<td align="center">
-		    		<img src="/imgs/yes.gif"/>
-		    	</td>
-		    	<td align="center">
-		    		<img src="/imgs/no.gif"/>
-		    	</td>
-		    	<td align="center">
-		    		<img src="/imgs/yes.gif"/>
-		    	</td>
-		    	<td align="center">
-		    		<span title="点击修改内容">001</span>
-		    	</td>
-		    	<td align="center">
-		    		<span title="点击修改内容">100</span>
-		    	</td>
-		    	<td align="center">
-		    		<span title="点击修改内容">0</span>
-		    	</td>
-		    	<td align="center">
-		    		<a href="http://localhost:8080/" title="查看">
-		    			<img src="/imgs/icon_view.gif" alt="" />
-		    		</a>
-		    		<a href="http://localhost:8080/goods_add" title="编辑">
-		    			<img src="/imgs/icon_edit.gif" alt="" />
-		    		</a>
-		    		<a href="http://localhost:8080/goods_add" title="复制">
-		    			<img src="/imgs/icon_copy.gif" alt="" />
-		    		</a>
-		    		<a href="#" title="回收站" class="del_goods">
-		    			<img src="/imgs/icon_trash.gif" alt="" />
-		    		</a>
-		    	</td>
-		    </tr>
 		 <% for(var i=0; i<list.length; i++) { %>
 	    	<tr>
 	    		<td>
 	    		<input type="checkbox"/>
-	    		00<%= i+2 %>
+	    		<%= sum %>
 		    	</td>
 		    	<td class="first-cell">
 		    		<span title="点击修改内容"><%= list[i].goods_name %></span>
@@ -157,7 +107,11 @@
 		    		<img src="/imgs/yes.gif"/>
 		    	</td>
 		    	<td align="center">
-		    		<img src="/imgs/no.gif"/>
+		    		<% if(list[i].is_best == "1") {%>
+		    		<img src="/imgs/yes.gif"/>
+		    		<% }else{ %>
+		    		<img src="/imgs/no.gif"/>	
+		    		<% } %>
 		    	</td>
 		    	<td align="center">
 		    		<img src="/imgs/no.gif"/>
@@ -166,7 +120,7 @@
 		    		<img src="/imgs/yes.gif"/>
 		    	</td>
 		    	<td align="center">
-		    		<span title="点击修改内容">00<%= i+2 %></span>
+		    		<span title="点击修改内容"><%= --sumgood %></span>
 		    	</td>
 		    	<td align="center">
 		    		<span title="点击修改内容"><%= list[i].goods_number %></span>
@@ -184,7 +138,7 @@
 		    		<a href="http://localhost:8080/goods_add" title="复制">
 		    			<img src="/imgs/icon_copy.gif" alt="" />
 		    		</a>
-		    		<a href="#" title="回收站" class="del_goods">
+		    		<a href="#" title="回收站" onclick="del('<%= list[i]._id %>')">
 		    			<img src="/imgs/icon_trash.gif" alt="" />
 		    		</a>
 		    	</td>
@@ -196,20 +150,25 @@
 	    		<td align="right" nowrap="true">
 	    		   <div class="turn-page">
 	    		   	   总计
-	    		   	 <span id="goods_num">0</span>
+	    		   	 <span id="goods_num"><%= sum %></span>
 	    		   	 个纪录&nbsp;&nbsp;分为
-	    		   	 <span id="page_num">2</span>页&nbsp;&nbsp;当前第
-	    		   	 <span>1</span>页&nbsp;&nbsp;每页
-	    		   	 <input type="text" value="15" id="pageSize"/>
+	    		   	 <span id="page_num"><%= Math.ceil(sum/count) %></span>页&nbsp;&nbsp;当前第
+	    		   	 <span id="now_page"><%= pageNo %></span>页&nbsp;&nbsp;每页
+	    		   	 <input type="text" value="<%= count %>" id="pageSize"/>
 	    		   	 <span style="margin: 0 10px;">|</span>
 	    		   	 <span id="page-style">
-	    		   	 	<a href="#">第一页</a>
-	    		   	 	<a href="#">上一页</a>
-	    		   	 	<a href="#">下一页</a>
-	    		   	 	<a href="#">最末页</a>
+	    		   	 	<a href="/goods_list?pageNo=1&count=<%= count%>">第1页</a>
+	    		   	 	<% if(pageNo>1) {%>
+	    		   	 	<a href="/goods_list?pageNo=<%= pageNo-1 %>&count=<%= count %>" >上一页</a>
+	    		   	 	<% } %>
+                        <% if( pageNo<Math.ceil(sum/count) ) {%>
+	    		   	 	<a href="/goods_list?pageNo=<%= pageNo+1 %>&count=<%= count %>">下一页</a>
+	    		   	 	<% } %>
+	    		   	 	<a href="/goods_list?pageNo=<%= Math.ceil(sum/count) %>&count=<%= count%>">最末页</a>
 	    		   	 	<select name="go-page">
-	    		   	 		<option value="">1</option>
-	    		   	 		<option value="">2</option>
+	    		   	 	<% for(var j=1; j<=Math.ceil(sum/count); j++) {%>
+	    		   	 		<option value=""><%= j %></option>
+	    		   	 	<% } %>
 	    		   	 	</select>
 	    		   	 </span>
 	    		   </div>
@@ -235,11 +194,6 @@
     </div>
 </body>
 <script type="text/javascript">
-	window.onload=function(){
-		$("#goods_num").html( $("#tabList").find("tr").length-1 );
-		var sum_page=Math.ceil( parseInt( $("#goods_num").html() )/parseInt( $("#pageSize").val() ) );
-		$("#page_num").html(sum_page);
-	}
 	//委托实现为每一个span添加一个onclick事件
 	$("#tabList").delegate("span","click",function(){
 		var txt = $("<input type='text' style='width:50px'/>");
@@ -258,10 +212,27 @@
 		})
 	})
 	//回收站
-	$(".del_goods").click(function(){
+	/*$(".del_goods").click(function(){
 		if(confirm("确定要删除此商品么")){
 			$(this).parent().parent().remove();
 		}
-	})
+	})*/
+    function del(gid){
+		 $.ajax({
+		 	   url : "/api/goods_del",
+	           type : "get",
+	           data : {
+	           	  gid : gid
+	           },
+	           success : function(res){
+	              console.log(res);
+	              if(res.status == 1){
+	              	  location.reload(true);
+	              }else{
+	              	alert(res.message);
+	              }
+	           }
+			 })
+		}
 </script>
 </html>
