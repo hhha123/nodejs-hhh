@@ -60,6 +60,9 @@ router.post("/api/add_goods",function(req,res){
 	})
 	form.parse(req,function(err,body,files){
 		var is_best = body.is_best;
+		var is_new = body.is_new;
+		var is_hot = body.is_hot;
+		var is_on_sale = body.is_on_sale;
 		var goods_name = body.goods_name[0];
 		var goods_sn = body.goods_sn[0];
 		var goods_price = body.goods_price[0];
@@ -77,6 +80,9 @@ router.post("/api/add_goods",function(req,res){
         gm.virtual_sales = virtual_sales;
         gm.goods_number = goods_number;
         gm.is_best = is_best;
+        gm.is_new = is_new;
+        gm.is_hot = is_hot;
+        gm.is_on_sale = is_on_sale
         gm.goods_img01Name = goods_img01Name;
         gm.goods_img02Name = goods_img02Name;
         gm.save(function(err){
